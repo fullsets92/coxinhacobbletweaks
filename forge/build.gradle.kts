@@ -29,10 +29,10 @@ repositories {
 dependencies {
     minecraft("net.minecraft:minecraft:1.19.2")
     mappings(loom.officialMojangMappings())
-    forge("net.minecraftforge:forge:1.19.2-43.1.3")
+    forge("net.minecraftforge:forge:1.19.2-43.2.0")
 
-    modImplementation("dev.architectury", "architectury-forge", "6.3.49")
-    modImplementation("com.cobblemon:forge:1.2.1+1.19.2-SNAPSHOT") {
+    modImplementation("dev.architectury", "architectury-forge", "6.5.69")
+    modImplementation("com.cobblemon:forge:1.3.1+1.19.2-SNAPSHOT") {
         isTransitive = false
     }
 
