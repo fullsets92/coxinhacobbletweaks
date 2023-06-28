@@ -32,7 +32,6 @@ public final class ExampleForgeMod {
                     })
             );
         }
-
     }
 
 }

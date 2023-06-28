@@ -1,5 +1,3 @@
-rootProject.name = "Forge"
-
 pluginManagement {
     repositories {
         maven("https://maven.fabricmc.net/")

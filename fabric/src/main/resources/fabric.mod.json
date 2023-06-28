@@ -16,10 +16,9 @@
   },
   "depends": {
     "java": ">=17",
-    "minecraft": ">=1.19.2",
+    "minecraft": ">=1.19.4",
     "fabricloader": ">=0.13.3",
-    "fabric": "*",
-    "architectury": ">=6.0.37",
-    "cobblemon": ">=1.2.0"
+    "fabric-api": "*",
+    "cobblemon": ">=0.0.1"
   }
 }
