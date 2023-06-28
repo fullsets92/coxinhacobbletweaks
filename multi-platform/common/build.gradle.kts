@@ -6,7 +6,7 @@ plugins {
 dependencies {
     minecraft("com.mojang:minecraft:1.19.4")
     mappings(loom.officialMojangMappings())
-    modCompileOnly("com.cobblemon:mod:0.0.1+1.19.4-SNAPSHOT") {
+    modCompileOnly("com.cobblemon:mod:1.4.0+1.19.4-SNAPSHOT") {
         isTransitive = false
     }
 

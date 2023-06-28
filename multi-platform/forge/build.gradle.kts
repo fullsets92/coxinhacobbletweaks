@@ -35,7 +35,7 @@ dependencies {
         isTransitive = false
     }
 
-    modImplementation("com.cobblemon:forge:0.0.1+1.19.4-SNAPSHOT")
+    modImplementation("com.cobblemon:forge:1.4.0+1.19.4-SNAPSHOT")
     runtimeOnly("thedarkcolour:kotlinforforge:4.1.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
