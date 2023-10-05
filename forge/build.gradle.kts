@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("dev.architectury.loom") version("0.12.0-SNAPSHOT")
+    id("dev.architectury.loom") version("1.2-SNAPSHOT")
     id("architectury-plugin") version("3.4-SNAPSHOT")
 }
 
@@ -29,15 +29,15 @@ repositories {
 }
 
 dependencies {
-    minecraft("net.minecraft:minecraft:1.19.4")
+    minecraft("net.minecraft:minecraft:1.20.1")
     mappings(loom.officialMojangMappings())
-    forge("net.minecraftforge:forge:1.19.4-45.1.0")
+    forge("net.minecraftforge:forge:1.20.1-47.2.0")
 
-    modImplementation("com.cobblemon:forge:1.4.0+1.19.4-SNAPSHOT")
-    runtimeOnly("thedarkcolour:kotlinforforge:4.1.0")
+    modImplementation("com.cobblemon:forge:1.4.0+1.20.1-SNAPSHOT")
+    runtimeOnly("thedarkcolour:kotlinforforge-4.5.0-all")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
 }
 
 tasks.getByName<Test>("test") {
