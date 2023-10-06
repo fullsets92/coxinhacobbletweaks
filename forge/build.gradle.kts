@@ -4,6 +4,7 @@ plugins {
     id("architectury-plugin") version("3.4-SNAPSHOT")
 }
 
+
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
@@ -34,7 +35,7 @@ dependencies {
     forge("net.minecraftforge:forge:1.20.1-47.2.0")
 
     modImplementation("com.cobblemon:forge:1.4.0+1.20.1-SNAPSHOT")
-    runtimeOnly("thedarkcolour:kotlinforforge-4.5.0-all")
+    runtimeOnly("thedarkcolour:kotlinforforge:4.5.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
