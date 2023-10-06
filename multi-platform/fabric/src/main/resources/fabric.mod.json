@@ -16,9 +16,9 @@
   },
   "depends": {
     "java": ">=17",
-    "minecraft": ">=1.19.2",
-    "fabricloader": ">=0.13.3",
-    "fabric": ">=0.75.1",
-    "cobblemon": ">=0.0.1"
+    "minecraft": ">=1.20.1",
+    "fabricloader": ">=0.14.21",
+    "fabric": "*",
+    "cobblemon": ">=1.4.0"
   }
 }
