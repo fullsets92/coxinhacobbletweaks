@@ -36,7 +36,7 @@ dependencies {
     }
 
     modImplementation("com.cobblemon:forge:1.4.0+1.20.1-SNAPSHOT")
-    runtimeOnly("thedarkcolour:kotlinforforge-4.5.0-all")
+    implementation("thedarkcolour:kotlinforforge:4.5.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
