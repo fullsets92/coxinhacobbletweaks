@@ -15,7 +15,7 @@ public class FabricMod implements ModInitializer {
     public void onInitialize() {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             dispatcher.register(literal("test").executes(context -> {
-                Species species = PokemonSpecies.INSTANCE.getByIdentifier(ResourceLocation.of("cobblemon:bidoof", ':'));
+                Species species = PokemonSpecies.INSTANCE.getByIdentifier(ResourceLocation.tryParse("cobblemon:bidoof"));
                 context.getSource().sendSystemMessage(
                         Component.literal("Got species: ")
                                 .withStyle(Style.EMPTY.withColor(0x03e3fc))
