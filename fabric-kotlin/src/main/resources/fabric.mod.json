@@ -18,11 +18,11 @@
     ]
   },
   "depends": {
-    "java": ">=17",
-    "minecraft": ">=1.20.1",
-    "fabricloader": ">=0.14.21",
+    "java": ">=21",
+    "minecraft": ">=1.21",
+    "fabricloader": ">=0.16.0",
     "fabric-language-kotlin": ">=1.10.10+kotlin.1.9.10",
     "fabric": "*",
-    "cobblemon": ">=1.4.0"
+    "cobblemon": ">=1.6.0"
   }
 }

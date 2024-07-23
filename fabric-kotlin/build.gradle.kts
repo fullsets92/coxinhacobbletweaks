@@ -1,8 +1,8 @@
 plugins {
     id("java")
-    id("dev.architectury.loom") version("1.2-SNAPSHOT")
+    id("dev.architectury.loom") version("1.6-SNAPSHOT")
     id("architectury-plugin") version("3.4-SNAPSHOT")
-    kotlin("jvm") version ("1.7.10")
+    kotlin("jvm") version ("1.9.23")
 }
 
 group = "org.example"
@@ -15,10 +15,6 @@ architectury {
 
 loom {
     silentMojangMappingsLicense()
-
-    mixin {
-        defaultRefmapName.set("mixins.${project.name}.refmap.json")
-    }
 }
 
 repositories {
@@ -28,14 +24,13 @@ repositories {
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:1.20.1")
+    minecraft("net.minecraft:minecraft:1.21")
     mappings(loom.officialMojangMappings())
-    modImplementation("net.fabricmc:fabric-loader:0.14.21")
+    modImplementation("net.fabricmc:fabric-loader:0.16.0")
 
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.10.10+kotlin.1.9.10")
-    modImplementation(fabricApi.module("fabric-command-api-v2", "0.89.3+1.20.1"))
-    modImplementation("dev.architectury", "architectury-fabric", "9.1.12")
-    modImplementation("com.cobblemon:fabric:1.4.0+1.20.1-SNAPSHOT")
+    modImplementation("net.fabricmc:fabric-language-kotlin:1.10.19+kotlin.1.9.23")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:0.100.7+1.21")
+    modImplementation("com.cobblemon:fabric:1.6.0+1.21-SNAPSHOT")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
