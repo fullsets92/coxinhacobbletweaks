@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("dev.architectury.loom") version("1.2-SNAPSHOT")
+    id("dev.architectury.loom") version("1.6-SNAPSHOT")
     id("architectury-plugin") version("3.4-SNAPSHOT")
 }
 
@@ -10,15 +10,11 @@ version = "1.0-SNAPSHOT"
 
 architectury {
     platformSetupLoomIde()
-    forge()
+    neoForge()
 }
 
 loom {
     silentMojangMappingsLicense()
-
-    mixin {
-        defaultRefmapName.set("mixins.${project.name}.refmap.json")
-    }
 }
 
 repositories {
@@ -27,15 +23,19 @@ repositories {
     maven("https://maven.impactdev.net/repository/development/")
     maven("https://hub.spigotmc.org/nexus/content/groups/public/")
     maven("https://thedarkcolour.github.io/KotlinForForge/")
+    maven("https://maven.neoforged.net")
 }
 
 dependencies {
-    minecraft("net.minecraft:minecraft:1.20.1")
+    minecraft("net.minecraft:minecraft:1.21")
     mappings(loom.officialMojangMappings())
-    forge("net.minecraftforge:forge:1.20.1-47.2.0")
+    neoForge("net.neoforged:neoforge:21.0.117-beta")
 
-    modImplementation("com.cobblemon:forge:1.4.0+1.20.1-SNAPSHOT")
-    runtimeOnly("thedarkcolour:kotlinforforge:4.5.0")
+    modImplementation("com.cobblemon:neoforge:1.6.0+1.21-SNAPSHOT")
+    //Needed for cobblemon
+    implementation("thedarkcolour:kotlinforforge-neoforge:5.3.0") {
+        exclude(group = "net.neoforged.fancymodloader", module = "loader")
+    }
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")

@@ -1,11 +1,11 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[21,)"
 license = "MIT"
 
 [[mods]]
-modId = "cobblemon_forge_mdk"
+modId = "cobblemon_neoforge_mdk"
 version = "1.0.0"
-displayName = "Cobblemon Forge Template Sidemod"
+displayName = "Cobblemon NeoForge Template Sidemod"
 description = '''
 
 '''
@@ -13,20 +13,20 @@ description = '''
 [[dependencies.cobblemon_forge_mdk]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20.1]"
+versionRange = "[1.21]"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.cobblemon_forge_mdk]]
-modId = "forge"
+modId = "neoforge"
 mandatory = true
-versionRange = "[47,)"
+versionRange = "[21,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.cobblemon_forge_mdk]]
 modId = "cobblemon"
 mandatory = true
-versionRange = "[1.4.0,)"
+versionRange = "[1.6.0,)"
 ordering = "NONE"
 side = "BOTH"
