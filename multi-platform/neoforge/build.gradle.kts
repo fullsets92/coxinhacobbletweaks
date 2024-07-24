@@ -5,7 +5,6 @@ plugins {
 
 architectury {
     platformSetupLoomIde()
-    forge()
 }
 
 loom {
@@ -26,17 +25,18 @@ repositories {
 }
 
 dependencies {
-    minecraft("net.minecraft:minecraft:1.20.1")
+    minecraft("net.minecraft:minecraft:1.21")
     mappings(loom.officialMojangMappings())
-    forge("net.minecraftforge:forge:1.20.1-47.2.0")
+    neoForge("net.neoforged:neoforge:21.0.117-beta")
+
 
     implementation(project(":common", configuration = "namedElements"))
-    "developmentForge"(project(":common", configuration = "namedElements")) {
+    "developmentNeoForge"(project(":common", configuration = "namedElements")) {
         isTransitive = false
     }
 
-    modImplementation("com.cobblemon:forge:1.4.0+1.20.1-SNAPSHOT")
-    implementation("thedarkcolour:kotlinforforge:4.5.0")
+    modImplementation("com.cobblemon:neoforge:1.6.0+1.21")
+    modImplementation("thedarkcolour:kotlinforforge-neoforge:5.4.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")

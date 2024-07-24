@@ -18,7 +18,7 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.cobblemon_forge_mdk]]
-modId = "forge"
+modId = "neoforge"
 mandatory = true
 versionRange = "[47,)"
 ordering = "NONE"
@@ -27,6 +27,6 @@ side = "BOTH"
 [[dependencies.cobblemon_forge_mdk]]
 modId = "cobblemon"
 mandatory = true
-versionRange = "[1.4.0,)"
+versionRange = "[1.6.0,)"
 ordering = "NONE"
 side = "BOTH"
