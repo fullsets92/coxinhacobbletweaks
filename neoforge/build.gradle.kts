@@ -1,7 +1,8 @@
 plugins {
     id("java")
-    id("dev.architectury.loom") version("1.6-SNAPSHOT")
+    id("dev.architectury.loom") version("1.7-SNAPSHOT")
     id("architectury-plugin") version("3.4-SNAPSHOT")
+    kotlin("jvm") version "1.9.23"
 }
 
 
@@ -29,14 +30,13 @@ repositories {
 dependencies {
     minecraft("net.minecraft:minecraft:1.21")
     mappings(loom.officialMojangMappings())
-    neoForge("net.neoforged:neoforge:21.0.117-beta")
+    neoForge("net.neoforged:neoforge:21.0.14-beta")
 
     modImplementation("com.cobblemon:neoforge:1.6.0+1.21-SNAPSHOT")
     //Needed for cobblemon
     implementation("thedarkcolour:kotlinforforge-neoforge:5.3.0") {
-        exclude(group = "net.neoforged.fancymodloader", module = "loader")
+        exclude("net.neoforged.fancymodloader", "loader")
     }
-
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
 }

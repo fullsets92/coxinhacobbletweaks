@@ -10,10 +10,6 @@ architectury {
 loom {
     enableTransitiveAccessWideners.set(true)
     silentMojangMappingsLicense()
-
-    mixin {
-        defaultRefmapName.set("mixins.${project.name}.refmap.json")
-    }
 }
 
 repositories {
@@ -27,7 +23,7 @@ repositories {
 dependencies {
     minecraft("net.minecraft:minecraft:1.21")
     mappings(loom.officialMojangMappings())
-    neoForge("net.neoforged:neoforge:21.0.117-beta")
+    neoForge("net.neoforged:neoforge:21.0.14-beta")
 
 
     implementation(project(":common", configuration = "namedElements"))
@@ -36,7 +32,6 @@ dependencies {
     }
 
     modImplementation("com.cobblemon:neoforge:1.6.0+1.21")
-    modImplementation("thedarkcolour:kotlinforforge-neoforge:5.4.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
