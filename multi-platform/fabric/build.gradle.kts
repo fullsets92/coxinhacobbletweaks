@@ -18,16 +18,16 @@ loom {
 }
 
 dependencies {
-    minecraft("net.minecraft:minecraft:1.20.1")
+    minecraft("net.minecraft:minecraft:1.21")
     mappings(loom.officialMojangMappings())
-    modImplementation("net.fabricmc:fabric-loader:0.14.21")
+    modImplementation("net.fabricmc:fabric-loader:0.16.0")
 
-    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.89.3+1.20.1")
-    modImplementation(fabricApi.module("fabric-command-api-v2", "0.89.3+1.20.1"))
+    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.100.7+1.21")
+    modImplementation(fabricApi.module("fabric-command-api-v2", "0.100.7+1.21"))
+    modImplementation("com.cobblemon:fabric:1.6.0+1.21-SNAPSHOT")
+
     implementation(project(":common", configuration = "namedElements"))
     "developmentFabric"(project(":common", configuration = "namedElements"))
-
-    modImplementation("com.cobblemon:fabric:1.4.0+1.20.1-SNAPSHOT")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")

@@ -16,7 +16,7 @@ public final class ExampleCommandRegistry {
 
     public static void registerCommands(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext context, Commands.CommandSelection environment) {
         dispatcher.register(literal("test").executes(ctx -> {
-            Species species = PokemonSpecies.INSTANCE.getByIdentifier(ResourceLocation.of("cobblemon:bidoof", ':'));
+            Species species = PokemonSpecies.INSTANCE.getByIdentifier(ResourceLocation.tryParse("cobblemon:bidoof"));
             ctx.getSource().sendSystemMessage(
                     Component.literal("Got species: ")
                             .withStyle(Style.EMPTY.withColor(0x03e3fc))

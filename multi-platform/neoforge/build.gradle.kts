@@ -5,6 +5,7 @@ plugins {
 
 architectury {
     platformSetupLoomIde()
+    neoForge()
 }
 
 loom {
@@ -18,6 +19,7 @@ repositories {
     maven("https://maven.impactdev.net/repository/development/")
     maven("https://hub.spigotmc.org/nexus/content/groups/public/")
     maven("https://thedarkcolour.github.io/KotlinForForge/")
+    maven("https://maven.neoforged.net")
 }
 
 dependencies {
@@ -31,7 +33,11 @@ dependencies {
         isTransitive = false
     }
 
-    modImplementation("com.cobblemon:neoforge:1.6.0+1.21")
+    modImplementation("com.cobblemon:neoforge:1.6.0+1.21-SNAPSHOT")
+    //Needed for cobblemon
+    implementation("thedarkcolour:kotlinforforge-neoforge:5.3.0") {
+        exclude("net.neoforged.fancymodloader", "loader")
+    }
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
