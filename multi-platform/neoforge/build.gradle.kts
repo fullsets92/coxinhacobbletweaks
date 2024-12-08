@@ -1,4 +1,5 @@
 plugins {
+    id("com.github.johnrengelman.shadow") version "8.1.1"
     id("dev.architectury.loom")
     id("architectury-plugin")
 }
@@ -22,6 +23,11 @@ repositories {
     maven("https://maven.neoforged.net")
 }
 
+val shadowBundle = configurations.create("shadowBundle ") {
+    isCanBeConsumed = false
+    isCanBeResolved = true
+}
+
 dependencies {
     minecraft("net.minecraft:minecraft:1.21")
     mappings(loom.officialMojangMappings())
@@ -41,8 +47,28 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
+    shadowBundle(project(":common"))
 }
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
+}
+
+tasks {
+    jar {
+        archiveBaseName.set("${project.name}")
+        archiveClassifier.set("dev-slim")
+    }
+
+    shadowJar {
+        archiveBaseName.set("${project.name}")
+        configurations = listOf(shadowBundle)
+    }
+
+    remapJar {
+        dependsOn(shadowJar)
+        inputFile.set(shadowJar.flatMap { it.archiveFile })
+        archiveBaseName.set("${project.name}")
+        archiveVersion.set("${rootProject.version}")
+    }
 }
