@@ -29,7 +29,7 @@ object FabricMod : ModInitializer {
                 val species = PokemonSpecies.getByIdentifier(cobblemonResource("bidoof"))!!
 
                 context.source.sendSystemMessage(
-                    Component.literal("Got Species")
+                    Component.literal("Got Species: ")
                         .withStyle(Style.EMPTY.withColor(0x03e3fc))
                         .append(species.translatedName)
                 )

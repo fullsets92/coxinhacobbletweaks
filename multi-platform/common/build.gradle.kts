@@ -3,15 +3,21 @@ plugins {
     id("architectury-plugin")
 }
 
-dependencies {
-    minecraft("com.mojang:minecraft:1.20.1")
-    mappings(loom.officialMojangMappings())
-    modCompileOnly("com.cobblemon:mod:1.4.0+1.20.1-SNAPSHOT") {
-        isTransitive = false
-    }
+architectury {
+    common("neoforge", "fabric")
+}
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
+loom {
+    silentMojangMappingsLicense()
+}
+
+dependencies {
+    minecraft("com.mojang:minecraft:${property("minecraft_version")}")
+    mappings(loom.officialMojangMappings())
+    modImplementation("com.cobblemon:mod:${property("cobblemon_version")}") { isTransitive = false }
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${property("junit_version")}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${property("junit_version")}")
 }
 
 tasks.getByName<Test>("test") {

@@ -23,52 +23,62 @@ repositories {
     maven("https://maven.neoforged.net")
 }
 
-val shadowBundle = configurations.create("shadowBundle ") {
+val shadowBundle = configurations.create("shadowBundle") {
     isCanBeConsumed = false
     isCanBeResolved = true
 }
 
 dependencies {
-    minecraft("net.minecraft:minecraft:1.21")
+    minecraft("net.minecraft:minecraft:${property("minecraft_version")}")
     mappings(loom.officialMojangMappings())
-    neoForge("net.neoforged:neoforge:21.0.14-beta")
+    neoForge("net.neoforged:neoforge:${property("neoforge_version")}")
 
+    modImplementation("com.cobblemon:neoforge:${property("cobblemon_version")}") { isTransitive = false }
+    //Needed for cobblemon
+    forgeRuntimeLibrary("thedarkcolour:kotlinforforge-neoforge:${property("kotlin_for_forge_version")}") {
+        exclude("net.neoforged.fancymodloader", "loader")
+    }
 
     implementation(project(":common", configuration = "namedElements"))
     "developmentNeoForge"(project(":common", configuration = "namedElements")) {
         isTransitive = false
     }
+    shadowBundle(project(":common", configuration = "transformProductionFabric"))
 
-    modImplementation("com.cobblemon:neoforge:1.6.0+1.21-SNAPSHOT")
-    //Needed for cobblemon
-    implementation("thedarkcolour:kotlinforforge-neoforge:5.3.0") {
-        exclude("net.neoforged.fancymodloader", "loader")
-    }
-
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
-    shadowBundle(project(":common"))
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${property("junit_version")}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${property("junit_version")}")
 }
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
 }
 
+tasks.processResources {
+    inputs.property("version", project.version)
+
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand(project.properties)
+    }
+}
+
 tasks {
+
     jar {
-        archiveBaseName.set("${project.name}")
+        archiveBaseName.set("${rootProject.property("archives_base_name")}-${project.name}")
         archiveClassifier.set("dev-slim")
     }
 
     shadowJar {
-        archiveBaseName.set("${project.name}")
+        exclude("fabric.mod.json")
+        archiveClassifier.set("dev-shadow")
+        archiveBaseName.set("${rootProject.property("archives_base_name")}-${project.name}")
         configurations = listOf(shadowBundle)
     }
 
     remapJar {
         dependsOn(shadowJar)
         inputFile.set(shadowJar.flatMap { it.archiveFile })
-        archiveBaseName.set("${project.name}")
+        archiveBaseName.set("${rootProject.property("archives_base_name")}-${project.name}")
         archiveVersion.set("${rootProject.version}")
     }
 }

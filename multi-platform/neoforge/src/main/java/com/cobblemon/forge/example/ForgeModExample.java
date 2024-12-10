@@ -6,7 +6,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
-@Mod("cobblemon_forge_mdk")
+@Mod("cobblemon_multiplatform_mdk")
 public class ForgeModExample {
 
     public ForgeModExample() {

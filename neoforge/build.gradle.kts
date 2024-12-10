@@ -28,11 +28,11 @@ repositories {
 }
 
 dependencies {
-    minecraft("net.minecraft:minecraft:1.21")
+    minecraft("net.minecraft:minecraft:1.21.1")
     mappings(loom.officialMojangMappings())
-    neoForge("net.neoforged:neoforge:21.0.14-beta")
+    neoForge("net.neoforged:neoforge:21.1.66")
 
-    modImplementation("com.cobblemon:neoforge:1.6.0+1.21-SNAPSHOT")
+    modImplementation("com.cobblemon:neoforge:1.6.0+1.21.1-SNAPSHOT")
     //Needed for cobblemon
     implementation("thedarkcolour:kotlinforforge-neoforge:5.3.0") {
         exclude("net.neoforged.fancymodloader", "loader")
@@ -43,4 +43,12 @@ dependencies {
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
+}
+
+tasks.processResources {
+    inputs.property("version", project.version)
+
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand(project.properties)
+    }
 }

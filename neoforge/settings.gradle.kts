@@ -1,3 +1,5 @@
+rootProject.name = "NeoForge" //By default, this is how your built jar is called
+
 pluginManagement {
     repositories {
         maven("https://maven.fabricmc.net/")
