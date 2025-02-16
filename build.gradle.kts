@@ -6,7 +6,7 @@ plugins {
 }
 
 
-group = "org.fullsets"
+group = "com.github.fullsets92"
 version = "0.1.0"
 
 architectury {

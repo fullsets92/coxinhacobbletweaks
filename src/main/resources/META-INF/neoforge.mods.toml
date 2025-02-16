@@ -4,30 +4,30 @@ loaderVersion = "[1,)"
 license = "MIT License"
 
 [[mods]]
-modId = "cobblemon_neoforge_mdk"
+modId = "coxinhacobbletweaks"
 version = "${version}"
-displayName = "Cobblemon NeoForge Template Sidemod"
-authors = "Me!"
+displayName = "Coxinha Cobble Tweaks"
+authors = "fullsets"
 description = '''
-A very cool multi-line description!
+Adicionando coisas aleatórias
 '''
 #logoFile = ""
 
-[[dependencies.cobblemon_neoforge_mdk]]
+[[dependencies.coxinhacobbletweaks]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.21.1]"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.cobblemon_neoforge_mdk]]
+[[dependencies.coxinhacobbletweaks]]
 modId = "neoforge"
 mandatory = true
 versionRange = "[21.1.66,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.cobblemon_neoforge_mdk]]
+[[dependencies.coxinhacobbletweaks]]
 modId = "cobblemon"
 mandatory = true
 versionRange = "[1.6.0,)"
