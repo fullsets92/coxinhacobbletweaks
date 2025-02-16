@@ -6,8 +6,8 @@ plugins {
 }
 
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "org.fullsets"
+version = "0.1.0"
 
 architectury {
     platformSetupLoomIde()
